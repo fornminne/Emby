@@ -24,7 +24,33 @@ if (-not (Test-Path $vswhere)) {
 
 $vsPath = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -property installationPath
 if (-not $vsPath) {
-    Write-Error "No Visual Studio installation with MSBuild found. Please install Visual Studio 2019/2022 with 'Desktop development with C#' workload."
+    Write-Host "No Visual Studio installation with MSBuild found in this environment." -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "This shell (agent environment) only has the VS Installer, not a full Visual Studio edition with the Desktop development with C# workload." -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "=== MANUAL BUILD INSTRUCTIONS (run on a machine with Visual Studio installed) ===" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "1. On your Windows machine, open a 'Developer Command Prompt for Visual Studio 2022' (or 2019) from the Start menu." -ForegroundColor White
+    Write-Host "2. cd to your Emby/OmniStream source folder (e.g. D:\Emby)" -ForegroundColor White
+    Write-Host "3. Run these commands:" -ForegroundColor White
+    Write-Host ""
+    Write-Host "   msbuild OmniStream.sln /t:Restore /p:Configuration=Release /p:Platform=x64 /v:minimal" -ForegroundColor Green
+    Write-Host "   msbuild OmniStream.sln /p:Configuration=Release /p:Platform=x64 /v:minimal /m" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "4. The server executable will be at:" -ForegroundColor White
+    Write-Host "   MediaBrowser.ServerApplication\bin\x64\Release\MediaBrowser.ServerApplication.exe" -ForegroundColor Green
+    Write-Host "   (or bin\Release\... depending on platform)"
+    Write-Host ""
+    Write-Host "5. To run:" -ForegroundColor White
+    Write-Host "   .\MediaBrowser.ServerApplication\bin\x64\Release\MediaBrowser.ServerApplication.exe" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "   Or with the script (once on full VS machine): .\build-omnistream.ps1" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "Note: The binary will be branded as OmniStream Server (title, service, DLNA, UI strings, etc.)." -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "To install the required workload on a machine with VS Installer:" -ForegroundColor White
+    Write-Host '   "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe" modify --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Component.NuGet --quiet' -ForegroundColor Gray
+    Write-Host ""
     exit 1
 }
 
@@ -58,7 +84,10 @@ if ($LASTEXITCODE -ne 0) {
 
 $exe = Join-Path $root "MediaBrowser.ServerApplication\bin\$Configuration\MediaBrowser.ServerApplication.exe"
 if (-not (Test-Path $exe)) {
-    # Try x64 subfolder sometimes used
+    # Try x64 subfolder (common for x64 platform)
+    $exe = Join-Path $root "MediaBrowser.ServerApplication\bin\x64\$Configuration\MediaBrowser.ServerApplication.exe"
+}
+if (-not (Test-Path $exe)) {
     $exe = Join-Path $root "MediaBrowser.ServerApplication\bin\x64\$Configuration\MediaBrowser.ServerApplication.exe"
 }
 
@@ -70,12 +99,13 @@ if (Test-Path $exe) {
         $args = @()
         if ($AsService) { $args += "-service" }
         
-        # Run detached or in new window
+        # Run detached 
         Start-Process -FilePath $exe -ArgumentList $args -WorkingDirectory (Split-Path $exe) 
-        Write-Host "Server starting (check tray icon or http://localhost:8096). Logs in program data."
+        Write-Host "Server starting (check system tray icon or http://localhost:8096 or your LAN IP)." -ForegroundColor Green
+        Write-Host "Branded as OmniStream Server throughout (UI, service, discovery, etc.)." -ForegroundColor Green
     }
 } else {
-    Write-Warning "Build reported success but exe not found at expected location. Check bin\ folders."
+    Write-Warning "Build reported success but exe not found at expected location. Check bin\ folders manually."
 }
 
-Write-Host "Done. For service install: run the exe with -installservice as admin." -ForegroundColor Green
+Write-Host "Done. For service install/uninstall: run the exe with -installservice or -uninstallservice (as admin)." -ForegroundColor Green

@@ -67,7 +67,7 @@ For the Android shim / companion, see the separate OmniStream Android project (i
 
 ## Quick Compile + Run (one-liner)
 
-On a Windows dev machine with Visual Studio:
+On a Windows dev machine with Visual Studio 2019/2022 + "Desktop development with C#" workload:
 
 ```powershell
 cd D:\Emby
@@ -76,12 +76,41 @@ cd D:\Emby
 
 This will:
 - Auto-detect MSBuild from your VS install
-- Restore + build Release x64 as **OmniStream**
-- Launch the server (tray + web UI at http://localhost:8096 or your LAN IP)
+- Restore NuGet + build Release x64 as **OmniStream**
+- Launch the server (system tray icon + web UI at http://localhost:8096 or your LAN IP)
 
-To build only (no auto-run): `.\build-omnistream.ps1 -RunAfterBuild:$false`
+To build only (no launch): `.\build-omnistream.ps1 -RunAfterBuild:$false`
 
-The resulting executable title, service, DLNA announcements, UI strings, etc. are all branded **OmniStream Server**.
+The resulting executable, service name, DLNA/UPnP discovery, loading messages, web dashboard, shortcuts, etc. are all branded **OmniStream Server**.
+
+**If the script says "No Visual Studio installation with MSBuild found"** (common in limited shells/agents), follow the manual steps it prints, or:
+
+Open a **"Developer Command Prompt for Visual Studio"** and run:
+
+```cmd
+cd D:\Emby
+msbuild OmniStream.sln /t:Restore /p:Configuration=Release /p:Platform=x64 /v:minimal
+msbuild OmniStream.sln /p:Configuration=Release /p:Platform=x64 /v:minimal /m
+```
+
+Then run the exe at `MediaBrowser.ServerApplication\bin\x64\Release\MediaBrowser.ServerApplication.exe` (it will brand as OmniStream).
+
+See the full script for more options (service mode, etc.).
+
+## Android Companion App
+
+The companion "OmniStream" Android server shim (Ktor-based Emby-compatible API + web UI, in `D:\AI\omnistream`) has a pre-built APK at:
+
+`D:\AI\omnistream\app\build\outputs\apk\debug\app-debug.apk`
+
+To rebuild it (requires Android SDK + compatible JDK in JAVA_HOME, usually 11/17):
+
+```powershell
+cd D:\AI\omnistream
+.\gradlew.bat assembleDebug
+```
+
+Install the APK on an Android device/emulator to run a lightweight OmniStream server that Emby clients can connect to.
 
 ## Visit our community: ##
 

@@ -1,5 +1,11 @@
-Emby Server
-============
+Emby Server (personal fork)
+==========================
+
+**This is a personal fork / own version maintained by fornminne.**
+
+Based on the open source Emby Server from [MediaBrowser/Emby](https://github.com/MediaBrowser/Emby).
+
+---
 
 Emby Server is a personal media server with apps on just about every device.
 
@@ -25,6 +31,8 @@ It features a REST-based API with built-in documention to facilitate client deve
 ## New Users ##
 
 If you're a new user looking to install Emby Server, please head over to [emby.media](http://www.emby.media/ "emby.media")
+
+> Note: This fork may include custom builds or modifications. Use at your own discretion.
 
 ## Developer Info ##
 

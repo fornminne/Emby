@@ -3,7 +3,7 @@
   <Name>Popcorn Hour</Name>
   <Manufacturer>Emby</Manufacturer>
   <ManufacturerUrl>https://emby.media</ManufacturerUrl>
-  <ModelName>Emby Server</ModelName>
+  <ModelName>OmniStream Server</ModelName>
   <ModelDescription>UPnP/AV 1.0 Compliant Media Server</ModelDescription>
   <ModelNumber>01</ModelNumber>
   <ModelUrl>https://emby.media</ModelUrl>

@@ -498,7 +498,7 @@ namespace Emby.Server.Implementations
         {
             get
             {
-                return "Emby Server";
+                return "OmniStream Server";
             }
         }
 

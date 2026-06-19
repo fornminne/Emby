@@ -1,13 +1,17 @@
-Emby Server (personal fork)
-==========================
+OmniStream Server (personal fork)
+=================================
 
-**This is a personal fork / own version maintained by fornminne.**
+**OmniStream** — Personal Media Server
 
-Based on the open source Emby Server from [MediaBrowser/Emby](https://github.com/MediaBrowser/Emby).
+This is a personal branded fork / own version of the open source Emby Server.
+
+**Project:** [fornminne/Emby](https://github.com/fornminne/Emby) (branded as OmniStream)
+
+Original upstream: [MediaBrowser/Emby](https://github.com/MediaBrowser/Emby)
 
 ---
 
-Emby Server is a personal media server with apps on just about every device.
+OmniStream Server is a personal media server (branded fork of Emby Server) with apps on just about every device.
 
 It features a REST-based API with built-in documention to facilitate client development. We also have client libraries for our API to enable rapid development.
 
@@ -30,9 +34,9 @@ It features a REST-based API with built-in documention to facilitate client deve
 
 ## New Users ##
 
-If you're a new user looking to install Emby Server, please head over to [emby.media](http://www.emby.media/ "emby.media")
+If you're a new user looking to install OmniStream Server, see the releases or build from source.
 
-> Note: This fork may include custom builds or modifications. Use at your own discretion.
+> Note: This is a personal fork and may include custom builds or modifications. Original project at emby.media. Use at your own discretion.
 
 ## Developer Info ##
 

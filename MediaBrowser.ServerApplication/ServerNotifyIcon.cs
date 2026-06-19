@@ -148,8 +148,8 @@ namespace MediaBrowser.ServerApplication
             cmdCommunity.Text = "Visit Emby Community";
             cmdPremiere.Text = "Emby Premiere";
             cmdBrowse.Text = "Browse Library";
-            cmdConfigure.Text = "Configure Emby Server";
-            cmdRestart.Text = "Restart Emby Server";
+            cmdConfigure.Text = "Configure OmniStream Server";
+            cmdRestart.Text = "Restart OmniStream Server";
         }
 
         private string _uiCulture;

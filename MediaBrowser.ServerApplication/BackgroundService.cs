@@ -9,7 +9,7 @@ namespace MediaBrowser.ServerApplication
     public class BackgroundService : ServiceBase
     {
         public static string Name = "Emby";
-        public static string DisplayName = "Emby Server";
+        public static string DisplayName = "OmniStream Server";
 
         public static string GetExistingServiceName()
         {

@@ -123,7 +123,7 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(423, 59);
             this.lblStatus.TabIndex = 0;
-            this.lblStatus.Text = "Loading Emby Server";
+            this.lblStatus.Text = "Loading OmniStream Server";
             this.lblStatus.UseWaitCursor = true;
             // 
             // panel1

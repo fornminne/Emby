@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Emby Server")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("OmniStream")]
+[assembly: AssemblyDescription("OmniStream Server - Personal Media Server")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Emby Server")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("fornminne")]
+[assembly: AssemblyProduct("OmniStream")]
+[assembly: AssemblyCopyright("Copyright © 2013-2026 (personal fork of Emby Server)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

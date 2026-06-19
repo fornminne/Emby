@@ -75,7 +75,7 @@ namespace MediaBrowser.ServerApplication
             if (autorun && !MainStartup.IsRunningAsService)
             {
                 //Copy our shortut into the startup folder for this user
-                var targetPath = Path.Combine(startupPath, "Emby Server.lnk");
+                var targetPath = Path.Combine(startupPath, "OmniStream Server.lnk");
 
                 IShellLinkW link = (IShellLinkW)new ShellLink();
 
@@ -93,7 +93,7 @@ namespace MediaBrowser.ServerApplication
             else
             {
                 //Remove our shortcut from the startup folder for this user
-                FileSystemManager.DeleteFile(Path.Combine(startupPath, "Emby Server.lnk"));
+                FileSystemManager.DeleteFile(Path.Combine(startupPath, "OmniStream Server.lnk"));
             }
         }
 

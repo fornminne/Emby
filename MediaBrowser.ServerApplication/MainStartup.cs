@@ -100,7 +100,7 @@ namespace MediaBrowser.ServerApplication
 
                 if (IsAlreadyRunning(ApplicationPath, currentProcess))
                 {
-                    logger.Info("Shutting down because another instance of Emby Server is already running.");
+                    logger.Info("Shutting down because another instance of OmniStream Server is already running.");
                     return;
                 }
 
@@ -227,7 +227,7 @@ namespace MediaBrowser.ServerApplication
                     if (path.IndexOf(applicationPath, StringComparison.OrdinalIgnoreCase) != -1)
                     {
                         _logger.Info("The windows service is already running");
-                        MessageBox.Show("Emby Server is already running as a Windows Service. Only one instance is allowed at a time. To run as a tray icon, shut down the Windows Service.");
+                        MessageBox.Show("OmniStream Server is already running as a Windows Service. Only one instance is allowed at a time. To run as a tray icon, shut down the Windows Service.");
                         return true;
                     }
                 }

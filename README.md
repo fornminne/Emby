@@ -63,7 +63,25 @@ This is a legacy Visual Studio 2017-era solution (C# .NET 4.7 + netstandard).
 - Expect some updates/retargeting for modern VS/.NET Framework SDK.
 - After build, you can rename the exe or use a launcher script for "OmniStream.exe".
 
-For the Android shim / companion, see the separate OmniStream Android project.
+For the Android shim / companion, see the separate OmniStream Android project (in your workspace under AI/omnistream).
+
+## Quick Compile + Run (one-liner)
+
+On a Windows dev machine with Visual Studio:
+
+```powershell
+cd D:\Emby
+.\build-omnistream.ps1
+```
+
+This will:
+- Auto-detect MSBuild from your VS install
+- Restore + build Release x64 as **OmniStream**
+- Launch the server (tray + web UI at http://localhost:8096 or your LAN IP)
+
+To build only (no auto-run): `.\build-omnistream.ps1 -RunAfterBuild:$false`
+
+The resulting executable title, service, DLNA announcements, UI strings, etc. are all branded **OmniStream Server**.
 
 ## Visit our community: ##
 

@@ -44,6 +44,29 @@ If you're a new user looking to install OmniStream Server, see the releases or b
 
 [How to Build a Server Plugin](https://github.com/MediaBrowser/MediaBrowser/wiki/How-to-build-a-Server-Plugin "How to build a server plugin")
 
+## Building OmniStream Server (from source) ##
+
+This is a legacy Visual Studio 2017-era solution (C# .NET 4.7 + netstandard).
+
+**On a Windows machine with Visual Studio 2022/2019:**
+
+1. Open `OmniStream.sln` in Visual Studio.
+2. Restore NuGet packages (right-click solution > Restore NuGet Packages). The `/packages` folder has many pre-placed.
+3. Set configuration to Release | x64 (or AnyCPU).
+4. Build the solution or specifically the `MediaBrowser.ServerApplication` project.
+5. The output exe will be in `MediaBrowser.ServerApplication\bin\Release\MediaBrowser.ServerApplication.exe` (title will show as OmniStream).
+6. Run it; it should start the web UI on the default port (8096).
+
+**Notes:**
+- Some ThirdParty/emby/*.dll are prebuilt closed components from the era.
+- For Linux/Mac, look at MediaBrowser.Server.Mono project (requires Mono or .NET Core porting work).
+- Expect some updates/retargeting for modern VS/.NET Framework SDK.
+- After build, you can rename the exe or use a launcher script for "OmniStream.exe".
+
+For the Android shim / companion, see the separate OmniStream Android project.
+
+## Visit our community: ##
+
 
 ## Visit our community: ##
 

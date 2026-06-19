@@ -62,7 +62,7 @@ namespace MediaBrowser.ServerApplication
             // 
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
             notifyIcon1.Icon = new System.Drawing.Icon(GetType().Assembly.GetManifestResourceStream(GetType().Namespace + ".Icon.ico"));
-            notifyIcon1.Text = "Emby";
+            notifyIcon1.Text = "OmniStream Server";
             notifyIcon1.Visible = true;
             // 
             // contextMenuStrip1
@@ -145,8 +145,8 @@ namespace MediaBrowser.ServerApplication
             _uiCulture = _configurationManager.Configuration.UICulture;
 
             cmdExit.Text = "Exit";
-            cmdCommunity.Text = "Visit Emby Community";
-            cmdPremiere.Text = "Emby Premiere";
+            cmdCommunity.Text = "Visit Community";
+            cmdPremiere.Text = "OmniStream Options";
             cmdBrowse.Text = "Browse Library";
             cmdConfigure.Text = "Configure OmniStream Server";
             cmdRestart.Text = "Restart OmniStream Server";

@@ -396,6 +396,14 @@ namespace MediaBrowser.ServerApplication
             //Application.SetCompatibleTextRenderingDefault(false);
             _serverNotifyIcon = new ServerNotifyIcon(appHost.LogManager, appHost, appHost.ServerConfigurationManager, appHost.LocalizationManager);
             _mainTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
+
+            // Auto open the OmniStream web UI in the browser on startup
+            try
+            {
+                BrowserLauncher.OpenWebApp(appHost);
+            }
+            catch { }
+
             Application.Run();
         }
 
